@@ -1,0 +1,24 @@
+{% extends "base.html"%}{% block title %}Home{% endblock %}
+
+
+{% block content %}
+    <form method="POST">
+        <div class="getTask">
+            <input type="text" name="note" id="taskIp" placeholder="Add a note.." spellcheck="false">
+            <button type="submit" id="add"> + </button>
+        </div>
+    </form>
+        <div class="containerBox">
+            <ul class="taskList">
+                {% for note in user.notes %}
+                    <li class="task-added">
+                        <p class="t">{{note.data}}</p>
+                        <div class="task-buttons">
+                            <button class="done">Done</button>
+                            <button class="delete" onclick="deleteNote('{{ note.id }}')">Delete</button>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+{% endblock %}

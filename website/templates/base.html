@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Home{% endblock %}</title>
+    <link rel="icon" type="image/png" href="../../icon.png">
+    <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+</head>
+<body>
+     <div class="head">
+            <ul class="menu">
+                <li class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -900 900 900" width="25px" fill="#ffffff"><path d="M320-280q17 0 28.5-11.5T360-320q0-17-11.5-28.5T320-360q-17 0-28.5 11.5T280-320q0 17 11.5 28.5T320-280Zm0-160q17 0 28.5-11.5T360-480q0-17-11.5-28.5T320-520q-17 0-28.5 11.5T280-480q0 17 11.5 28.5T320-440Zm0-160q17 0 28.5-11.5T360-640q0-17-11.5-28.5T320-680q-17 0-28.5 11.5T280-640q0 17 11.5 28.5T320-600Zm120 320h240v-80H440v80Zm0-160h240v-80H440v80Zm0-160h240v-80H440v80ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg>
+                    <p style="margin-left: 3px;">Notes</p>
+                </li>
+                {% if user.is_authenticated %}
+                <li><a href="/" class="hide">Home</a></li>
+                <li><a href="/logout" class="hide">LogOut</a></li>
+                {% else %}
+                <li><a href="/login" class="hide">Login</a></li>
+                <li><a href="/signup" class="hide">SignUp</a></li>
+                {% endif %}
+                <li class="menubar" onclick=showSidebar()><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#ffffff"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></li>
+            </ul>
+            
+            <ul class="dropdown menu">
+                <li class="close" onclick=hideSidebar()>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="20px" fill="#ffffff"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </li>
+                {% if user.is_authenticated %}
+                <li><a href="/logout">LogOut</a></li>
+                <li><a href="/">Home</a></li>
+                {% else %}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">SignUp</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category,message in messages %}
+        <div class="alert {{ category }}">
+            {{ message }}
+            <span class="close-btn" onclick="this.parentElement.style.display='none';">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#000000">
+                    <path d="m256-200-56-56 224-224-224-224 56-56 
+                            224 224 224-224 56 56-224 224 224 224-56 
+                            56-224-224-224 224Z"/>
+                </svg>
+            </span>
+        </div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <script src="{{url_for('static',filename='index.js')}}"></script>
+</body>
+</html>
