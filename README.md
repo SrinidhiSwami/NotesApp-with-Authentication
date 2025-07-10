@@ -1,6 +1,6 @@
 # 📝 Flask Notes App with User Authentication
 
-A simple yet powerful web app to take, save, and manage notes — built with Flask, Flask-Login, and SQLAlchemy.
+A simple web app to take, save, and manage notes — built with Flask, Flask-Login, and SQLAlchemy.
 
 ## 🚀 Features
 
