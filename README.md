@@ -46,8 +46,7 @@ Each user can securely create and manage their own private notes.
 2. **Create a virtual environment**
 
    python -m venv venv
-   source venv/bin/activate (on mac/linux)
-   venv\Scripts\activate    (on Windows)
+   venv/Scripts/activate
 
 4. **Install dependencies**
 
