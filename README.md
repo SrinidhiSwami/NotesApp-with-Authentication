@@ -11,6 +11,11 @@ A simple web app to take, save, and manage notes — built with Flask, Flask-Log
 - 📦 SQLite database integration
 - 🌐 HTML & CSS templates using Jinja2
 
+![alt text](login.png)
+![alt text](signup.png)
+![alt text](<notes page.png>)
+![alt text](<note addition.png>)
+
 ## 🛠️ Tech Stack
 
 - **Backend**: Python, Flask, Flask-Login, SQLAlchemy
