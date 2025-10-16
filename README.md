@@ -45,14 +45,14 @@ Each user can securely create and manage their own private notes.
 
 2. **Create a virtual environment**
 
-    python -m venv venv
-    source venv/bin/activate    # (Mac/Linux)
-    venv\Scripts\activate       # (Windows)
+   python -m venv venv
+   source venv/bin/activate (on mac/linux)
+   venv\Scripts\activate    (on Windows)
 
-3. **Install dependencies**
+4. **Install dependencies**
 
     pip install -r requirements.txt
 
-4. **Run the app**
+5. **Run the app**
 
     python main.py
